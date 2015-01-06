@@ -1,0 +1,148 @@
+﻿
+
+@model PartyScheduler.Models.Check
+
+@{
+    ViewBag.Title = "PartyScheduler";
+}
+<script src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.2" type="text/javascript"></script>
+<script src="/Scripts/Map.js" type="text/javascript"></script>
+@ViewBag.Confirmation
+<div id="theMap" style="position:relative;">
+</div>
+
+ @using (Ajax.BeginForm("PartyScheduler", "Home", new AjaxOptions
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "here"
+})) 
+{
+     
+    <div id="here"> 
+
+
+@Html.ValidationSummary(true," Please Complete the Form") <br />
+
+@{ if(ViewBag.lo!=1)
+   {   
+@Html.Label("*Enter Your LoginID:") @Html.TextBoxFor(u=>u.obj.LoginID)
+@Html.ValidationMessageFor(u=>u.obj.LoginID) 
+ <br />
+ <br />
+    
+    
+@Html.Label("*Enter Your Password:") @Html.PasswordFor(u=>u.obj.Password)
+@Html.ValidationMessageFor(u=>u.obj.Password)
+ <br />
+ <br />
+}
+   if(ViewBag.lo==1)
+   {   
+
+@Html.HiddenFor(u=>u.obj.LoginID) <br />
+
+@Html.HiddenFor(u=>u.obj.Password) <br />
+}
+
+
+ }
+    
+    @Html.Label("Select Event Number:") 
+@Html.DropDownListFor(u=>u.option, new SelectList(
+                  new List<Object>{ 
+                       new { value = 1 , text = "1"  },
+                       new { value = 2 , text = "2" },
+                       new { value = 3 , text = "3"}
+                    },
+                  "value",
+                  "text",
+                   1))
+        <br /><br />
+@Html.Label("*Enter Title Of Event:") @Html.TextBoxFor(u=>u.obj.Title)
+@Html.ValidationMessageFor(u=>u.obj.Title) <br />
+ <br />
+
+
+@Html.Label("Enter Event Date") @Html.TextBoxFor(u=>u.obj.EventDate,new { type = "date" })
+@Html.ValidationMessageFor(u=>u.obj.EventDate) <br />
+ <br />
+
+
+@Html.Label("Enter Event Description:") 
+@Html.TextBoxFor(u=>u.obj.Description) <br /><br />
+
+
+@Html.Label("*Enter Host Name") @Html.TextBoxFor(u=>u.obj.HostedBy) 
+ @Html.ValidationMessageFor(u=>u.obj.HostedBy) <br /><br />
+
+
+
+@Html.Label("Enter Contact Number:") 
+@Html.TextBoxFor(u=>u.obj.ContactPhone) <br /><br />
+
+@Html.Label("*Enter Address") @Html.TextBoxFor(u=>u.obj.Address)
+@Html.ValidationMessageFor(u=>u.obj.Address) <br />
+ <br />
+
+
+@Html.Label("*Enter Country") @Html.DropDownListFor(u=>u.option, new SelectList(
+                  new List<Object>{ 
+                      new { value = "" , text = ""}, 
+                      new { value = "Canada" , text = "Canada"  },
+                       new { value = "USA" , text = "USA" },
+                       new { value = "India" , text = "India"}
+                       
+                    },
+                  "value",
+                  "text",
+                   ""),new { id = "obj_Country" })
+@Html.ValidationMessageFor(u=>u.obj.Country) <br />
+ <br />
+
+
+@Html.Label("*Enter Latitude") @Html.TextBoxFor(u=>u.obj.Latitude)
+        @Html.ValidationMessageFor(u=>u.obj.Latitude) <br />
+ <br />
+
+
+@Html.Label("*Enter Longitude") @Html.TextBoxFor(u=>u.obj.Longitude) 
+        @Html.ValidationMessageFor(u=>u.obj.Longitude) <br />
+<br />
+     <input type="submit" value="submit" />
+        
+        
+
+ 
+        </div>
+        }
+<script type="text/javascript">
+    $(document).ready(function() {
+        var latitude = document.getElementById("obj_Latitude").value;
+        var longitude = document.getElementById("obj_Longitude").value;
+        if ((latitude == 0) || (longitude == 0))
+            LoadMap();
+        else
+            LoadMap(latitude, longitude, mapLoaded);
+    });
+    function mapLoaded() {
+        var title = document.getElementById("obj_Title").value + " Hosted by " + document.getElementById("obj_HostedBy").value;
+        var address = document.getElementById("obj_Address").value + " " + document.getElementById("obj_Country").value;
+        LoadPin(center, title, address);
+        map.SetZoomLevel(14);
+    }
+
+
+    $(document).ready(function () {
+        $("#obj_Country").blur(function (evt) {
+            $("#obj_Latitude").val("");
+            $("#obj_Longitude").val("");
+            var address = jQuery.trim($("#obj_Address").val()) + " " + jQuery.trim($("#obj_Country").val());
+            if (address.length < 1)
+                return;
+            FindAddressOnMap(address);
+        });
+    });
+</script>
+
+

@@ -1,0 +1,233 @@
+﻿<script src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.2" type="text/javascript"></script>
+<script src="/Scripts/Map.js" type="text/javascript"></script>
+@model PartyScheduler.Models.CombineClass1
+
+@{
+    ViewBag.Title = "Log On";
+}
+
+<h2>Log On</h2>
+<div id="theMap" style="position:relative;">
+</div>
+<p>
+    Please enter your user name and password. @Html.ActionLink("Registration", "PartyScheduler", "Home") if you don't have an account.
+</p>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@Html.ValidationSummary(true, "")
+
+ @using (Ajax.BeginForm("LogOn", "Home", new AjaxOptions
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "here"
+}))  {
+    
+        <div id="here">
+        <fieldset>
+            <legend>Account Information</legend>
+
+            <div class="editor-label">
+                @Html.Label("Enter Login ID")
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.class1.LoginID)
+                @Html.ValidationMessageFor(m => m.class1.LoginID)
+            </div>
+
+            <div class="editor-label">
+                @Html.Label("Enter Your Password")
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(m => m.class1.Password)
+                @Html.ValidationMessageFor(m => m.class1.Password)
+            </div>
+            <div class="editor-field">
+                @Html.HiddenFor(m => m.class1.Latitude)
+                @Html.HiddenFor(m => m.class1.Longitude)
+                @Html.HiddenFor(m=>m.class1.Title)
+                @Html.HiddenFor(m=>m.class1.HostedBy)
+                @Html.HiddenFor(m=>m.class1.Address)
+                @Html.HiddenFor(m=>m.class1.Country)
+                @Html.HiddenFor(m => m.class2.Latitude)
+                @Html.HiddenFor(m => m.class2.Longitude)
+                @Html.HiddenFor(m=>m.class2.Title)
+                @Html.HiddenFor(m=>m.class2.HostedBy)
+                @Html.HiddenFor(m=>m.class2.Address)
+                @Html.HiddenFor(m=>m.class2.Country)
+                @Html.HiddenFor(m => m.class3.Latitude)
+                @Html.HiddenFor(m => m.class3.Longitude)
+                @Html.HiddenFor(m=>m.class3.Title)
+                @Html.HiddenFor(m=>m.class3.HostedBy)
+                @Html.HiddenFor(m=>m.class3.Address)
+                @Html.HiddenFor(m=>m.class3.Country)
+
+            </div>
+
+            
+
+            <p>
+                <input type="submit" value="Log On" />
+            </p>
+        </fieldset>
+  
+     
+          
+     @*
+       @{
+           if(ViewBag.now==1)
+           {
+               try
+               {
+        @Model.class1.LoginID <br />
+        @Model.class1.Password <br />
+        @Model.class1.Title <br />
+        @Model.class1.EventDate <br />
+        @Model.class1.Description <br />
+        @Model.class1.HostedBy<br />
+        @Model.class1.ContactPhone <br />
+        @Model.class1.Address <br />
+        @Model.class1.Country <br />
+        @Model.class1.Latitude <br />
+        @Model.class1.Longitude <br />
+        <br />}
+               catch (Exception) { }
+               try {
+
+        @Model.class2.LoginID <br />
+        @Model.class2.Password <br />
+        @Model.class2.Title <br />
+        @Model.class2.EventDate <br />
+        @Model.class2.Description <br />
+        @Model.class2.HostedBy<br />
+        @Model.class2.ContactPhone <br />
+        @Model.class2.Address <br />
+        @Model.class2.Country <br />
+        @Model.class2.Latitude <br />
+        @Model.class2.Longitude <br />
+        <br />}
+               catch (Exception) { }
+               
+               try{
+
+        @Model.class3.LoginID <br />
+        @Model.class3.Password <br />
+        @Model.class3.Title <br />
+        @Model.class3.EventDate <br />
+        @Model.class3.Description <br />
+        @Model.class3.HostedBy<br />
+        @Model.class3.ContactPhone <br />
+        @Model.class3.Address <br />
+        @Model.class3.Country <br />
+        @Model.class3.Latitude <br />
+        @Model.class3.Longitude <br />
+        <br />
+               }
+               catch (Exception) { }
+       }
+             
+             }
+            *@
+</div>
+
+  
+}
+
+<script>
+    try{document.getElementById("class1_Latitude").value = "@{try {@Model.class1.Latitude}
+                                                 catch (Exception) { }}";}catch(err){document.getElementById("class1_Latitude").value=null}
+    try{document.getElementById("class1_Longitude").value = "@{try {@Model.class1.Longitude}
+                                                 catch (Exception) { }}";}catch(err){document.getElementById("class1_Longitude").value=null}
+    try{ document.getElementById("class1_Title").value = "@{try {@Model.class1.Title}
+                                                 catch (Exception) { }}";}catch(err){document.getElementById("class1_Title").value=null}
+    try{document.getElementById("class1_HostedBy").value ="@{try {@Model.class1.HostedBy}
+                                                 catch (Exception) { }}";}catch(err){document.getElementById("class1_HostedBy").value =null}
+    try{ document.getElementById("class1_Address").value = "@{try {@Model.class1.Address}
+                                                 catch (Exception) { }}";}catch(err){document.getElementById("class1_Address").value = null}
+    try{document.getElementById("class1_Country").value = "@{try {@Model.class1.Country}
+                                                 catch (Exception) { }}";}catch(err){document.getElementById("class1_Country").value =null}
+
+    try{ document.getElementById("class2_Latitude").value = "@{try {@Model.class2.Latitude}
+                                                 catch (Exception) { }}";}catch(err){}
+    try{document.getElementById("class2_Longitude").value = "@{try {@Model.class2.Longitude}
+                                                 catch (Exception) { }}";}catch(err){}
+    try{document.getElementById("class2_Title").value = "@{try {@Model.class2.Title}
+                                                 catch (Exception) { }}";}catch(err){}
+    try{document.getElementById("class2_HostedBy").value ="@{try {@Model.class2.HostedBy}
+                                                 catch (Exception) { }}";}catch(err){}
+    try{document.getElementById("class2_Address").value = "@{try {@Model.class2.Address}
+                                                 catch (Exception) { }}";}catch(err){}
+    try{document.getElementById("class2_Country").value = "@{try {@Model.class2.Country}
+                                                 catch (Exception) { }}";}catch(err){}
+
+
+    try{ document.getElementById("class3_Latitude").value = "@{try {@Model.class3.Latitude}
+                                                 catch (Exception) { }}";}catch(err){}
+    try{document.getElementById("class3_Longitude").value = "@{try {@Model.class3.Longitude}
+                                                 catch (Exception) { }}";}catch(err){}
+    try{document.getElementById("class3_Title").value = "@{try {@Model.class3.Title}
+                                                 catch (Exception) { }}";}catch(err){}
+    try{document.getElementById("class3_HostedBy").value ="@{try {@Model.class3.HostedBy}
+                                                 catch (Exception) { }}";}catch(err){}
+    try{document.getElementById("class3_Address").value = "@{try {@Model.class3.Address}
+                                                 catch (Exception) { }}";}catch(err){}
+    try{document.getElementById("class3_Country").value = "@{try {@Model.class3.Country}
+                                                 catch (Exception) { }}";}catch(err){}
+
+
+
+
+    $(document).ready(function() {
+        
+        LoadMap();
+    });
+    
+
+    $(document).ready(function () {
+        try {
+
+            var center = new VELatLong(document.getElementById("class1_Latitude").value, document.getElementById("class1_Longitude").value);
+            var title = document.getElementById("class1_Title").value + " Hosted by " + document.getElementById("class1_HostedBy").value;
+            var address = document.getElementById("class1_Address").value + " " + document.getElementById("class1_Country").value;
+
+            LoadPin(center, title, address);
+            map.SetMapView(points);
+        }
+        catch (err) { }
+    })
+
+
+
+
+
+
+
+
+    $(document).ready(function(){
+        try{
+            
+            var center = new VELatLong(document.getElementById("class2_Latitude").value, document.getElementById("class2_Longitude").value);
+            var title = document.getElementById("class2_Title").value + " Hosted by " + document.getElementById("class2_HostedBy").value;
+            var address = document.getElementById("class2_Address").value + " " + document.getElementById("class2_Country").value;
+            
+            LoadPin(center, title, address);
+            map.SetMapView(points);}
+        catch(err) {}
+    })
+
+    $(document).ready(function(){
+        try{
+            var center=new VELatLong(document.getElementById("class3_Latitude").value ,document.getElementById("class3_Longitude").value);
+            var title = document.getElementById("class3_Title").value + " Hosted by " + document.getElementById("class3_HostedBy").value;
+            var address = document.getElementById("class3_Address").value + " " + document.getElementById("class3_Country").value;
+            LoadPin(center, title, address);       
+            map.SetMapView(points);
+        }
+        catch(err){}
+    })
+    
+    
+
+</script>

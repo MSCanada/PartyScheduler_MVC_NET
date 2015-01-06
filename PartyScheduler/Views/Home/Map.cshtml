@@ -1,0 +1,45 @@
+﻿
+
+<script src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.2" type="text/javascript"></script>
+<script src="/Scripts/Map.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var center = new VELatLong(43.4351501, -80.5135117);
+        
+        var center1 = new VELatLong(43.70, -79.33);
+        var title = "Big Boss";
+        var address = "e";
+            LoadMap();
+            LoadPin(center, title, address);
+            LoadPin(center1, title, address);
+            map.SetMapView(points);
+
+    });
+    
+    
+            
+    
+</script>
+
+
+
+<div id="theMap" style="position:relative;">
+</div>
+
+
+    
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Address").blur(function (evt) {
+            $("#Latitude").val("");
+            $("#Longitude").val("");
+            var address = jQuery.trim($("#Address").val());
+            if (address.length < 1)
+                return;
+            FindAddressOnMap(address);
+        });
+    });
+</script>

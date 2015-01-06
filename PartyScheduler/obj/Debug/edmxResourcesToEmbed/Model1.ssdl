@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_9B8D99_PartySchedulerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DB_9B8D99_PartySchedulerModelStoreContainer">
+    <EntitySet Name="Party1" EntityType="DB_9B8D99_PartySchedulerModel.Store.Party1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Party2" EntityType="DB_9B8D99_PartySchedulerModel.Store.Party2" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Party3" EntityType="DB_9B8D99_PartySchedulerModel.Store.Party3" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Party1">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="EventDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+    <Property Name="HostedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="30" />
+    <Property Name="Latitude" Type="float" />
+    <Property Name="Longitude" Type="float" />
+  </EntityType>
+  <EntityType Name="Party2">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="EventDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+    <Property Name="HostedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="30" />
+    <Property Name="Latitude" Type="float" />
+    <Property Name="Longitude" Type="float" />
+  </EntityType>
+  <EntityType Name="Party3">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="EventDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+    <Property Name="HostedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="30" />
+    <Property Name="Latitude" Type="float" />
+    <Property Name="Longitude" Type="float" />
+  </EntityType>
+</Schema>

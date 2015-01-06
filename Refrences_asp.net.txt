@@ -1,0 +1,7 @@
+https://www.youtube.com/watch?v=VAtVv1Q7ufM
+http://www.codeproject.com/Articles/787320/An-Absolute-Beginners-Tutorial-on-HTML-Helpers-and
+http://www.codeproject.com/Articles/639709/Getting-Data-From-View-to-Controller-in-MVC
+http://www.codeproject.com/Articles/482546/Creating-a-custom-user-login-form-with-NET-Csharp
+http://www.asp.net/mvc/overview/older-versions-1/models-(data)/validation-with-the-data-annotation-validators-cs
+http://www.entityframeworktutorial.net/EntityFramework4.3/raw-sql-query-in-entity-framework.aspx
+http://www.binaryintellect.net/articles/fbc96859-8a31-4735-baeb-7adcbc521b30.aspx

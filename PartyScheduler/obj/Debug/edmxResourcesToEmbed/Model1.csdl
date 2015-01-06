@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_9B8D99_PartySchedulerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DB_9B8D99_PartySchedulerEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Party1" EntityType="DB_9B8D99_PartySchedulerModel.Party1" />
+    <EntitySet Name="Party2" EntityType="DB_9B8D99_PartySchedulerModel.Party2" />
+    <EntitySet Name="Party3" EntityType="DB_9B8D99_PartySchedulerModel.Party3" />
+  </EntityContainer>
+  <EntityType Name="Party1">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EventDate" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="HostedBy" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="ContactPhone" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Country" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="Longitude" Type="Double" />
+  </EntityType>
+  <EntityType Name="Party2">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EventDate" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="HostedBy" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="ContactPhone" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Country" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="Longitude" Type="Double" />
+  </EntityType>
+  <EntityType Name="Party3">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EventDate" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="HostedBy" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="ContactPhone" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Country" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="Longitude" Type="Double" />
+  </EntityType>
+</Schema>
